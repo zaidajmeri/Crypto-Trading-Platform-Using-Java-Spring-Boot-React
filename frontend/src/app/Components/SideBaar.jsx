@@ -59,30 +59,23 @@ function SideBaar() {
     },
   ];
   return (
-    <div className="mt-10 space-y-5 ">
-      
-        <SheetClose className="w-full">
-          {menu.map((item, index) => {
-            return (
-            <div className="flex px-5 flex-col py-2" key={index}>
-                <Link href={item.path}>
-                <Button
+    <div className="space-y-2 flex flex-col">
+      {menu.map((item, index) => {
+        return (
+          <SheetClose asChild key={index}>
+            <Link href={item.path} className="w-full">
+              <Button
                 variant="outline"
-                className="flex items-center justify-center gap-5 py-6 w-full"
+                className="flex items-center justify-start gap-3 py-6 w-full"
               >
-                <span className="w-8">
-                  {item.icon}
-                </span>
-                <p>{item.name}</p>
+                {item.icon}
+                <span className="text-base">{item.name}</span>
               </Button>
-</Link>
-            </div>
-            )
-              
-            
-          })}
-        </SheetClose>
-      </div>
+            </Link>
+          </SheetClose>
+        );
+      })}
+    </div>
   );
 }
 
